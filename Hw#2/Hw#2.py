@@ -67,7 +67,7 @@ class Realtor(metaclass=RealtorMetaClass):
     def realtor_discount(self, realtor_house, price):
         price -= self.discount
         print(f"Realtor {self.realtor_name} gives u a {self.discount} dollars discount! "
-              f"Now your {realtor_house} cost {price} ")
+              f"Now your {realtor_house} cost {price}  dollars")
 
     def stealing_money(self):
         chance = randint(1, 10)
