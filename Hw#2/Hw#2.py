@@ -1,9 +1,9 @@
 from random import randint
-Houses = ['apartments', 'flat', 'village']
+HOUSES = ('apartments', 'flat', 'village')
 
 
 class Person:
-    def __init__(self, name, age, amount_of_money, having_home):
+    def __init__(self, name, age, amount_of_money, having_home: bool):
         self.name = name
         self.age = age
         self.amount_of_money = amount_of_money
@@ -13,9 +13,9 @@ class Person:
 class Human(Person):
     def human_information(self):
         print(f"My name is {self.name} and i am {self.age} years old!")
-        if self.having_home == 'No':
+        if not self.having_home:
             print(f"I don't have a home and want to buy one, i have only {self.amount_of_money} dollars! ")
-        elif self.having_home == 'Yes':
+        elif self.having_home:
             print(f"I want to sell my home and buy a new one, also i have {self.amount_of_money} dollars!")
 
     def making_money(self):
@@ -24,6 +24,7 @@ class Human(Person):
     def buying_home(self, price):
         if self.amount_of_money == price:
             print(f"You can buy this house")
+            self.having_home = True
         else:
             print("You need more money")
 
@@ -61,7 +62,7 @@ class Realtor(metaclass=RealtorMetaClass):
     def information_about_realtor(self):
         print(f"My name is {self.realtor_name} "
               f"I have such house examples: ")
-        for house_1 in Houses:
+        for house_1 in HOUSES:
             print(house_1.title())
 
     def realtor_discount(self, realtor_house, price):
@@ -80,7 +81,7 @@ class Realtor(metaclass=RealtorMetaClass):
 
 
 if __name__ == "__main__":
-    person1 = Human('Ernest', 21, 40000, 'No')
+    person1 = Human('Ernest', 21, 40000, False)
     worker = Realtor('Orest', 3000, 40000)
     person1.human_information()
     worker.information_about_realtor()
