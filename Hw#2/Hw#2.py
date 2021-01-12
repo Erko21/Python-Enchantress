@@ -77,7 +77,7 @@ class Realtor(metaclass=RealtorMetaClass):
             print(f"Realtor {self.realtor_name} stole your money,  now u have {self.buyer_money} dollars!")
         else:
             print(f"Realtor {self.realtor_name} tried to stole your money but he failed and u still"
-                  f" have {self.buyer_money} dollars!")
+                  f" have {self.buyer_money} dollars!!")
 
 
 if __name__ == "__main__":
