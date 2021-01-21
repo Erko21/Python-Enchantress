@@ -4,7 +4,6 @@ from test_complex import Test, new_test, func
 
 
 class TestingTestClass(unittest.TestCase):
-
     def setUp(self):
         self.test = Test()
         print('You can test func')
