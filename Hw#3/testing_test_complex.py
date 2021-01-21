@@ -26,7 +26,5 @@ class TestingTestClass(unittest.TestCase):
         self.assertIsInstance(new_test(), Test)
 
 
-
-
 if __name__ == '__main__':
     unittest.main()

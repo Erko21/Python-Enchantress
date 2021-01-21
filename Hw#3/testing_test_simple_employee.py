@@ -28,5 +28,6 @@ class EmployeeTestCase(unittest.TestCase):
         Employer.apply_raise()
         self.assertEqual(Employer.pay, 2100)
 
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
