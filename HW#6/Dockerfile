@@ -4,4 +4,3 @@ RUN pip install pytz
 RUN pip install datetime
 COPY city_date.py /app
 CMD python city_date.py
-
