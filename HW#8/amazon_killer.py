@@ -1,5 +1,6 @@
 from flask import Flask, request
 from datetime import datetime
+from exceptions import NoSuchCart, NoSuchUser
 
 amazon_killer = Flask(__name__)
 
@@ -7,16 +8,6 @@ USERS_DATABASE = {}
 CART_DATABASE = {}
 user_counter = 1
 cart_counter = 1
-
-
-class NoSuchUser(Exception):
-    def __init__(self, user_id):
-        self.user_id = user_id
-
-
-class NoSuchCart(Exception):
-    def __init__(self, cart_id):
-        self.cart_id = cart_id
 
 
 @amazon_killer.errorhandler(NoSuchUser)
@@ -106,7 +97,7 @@ def update_cart_info(cart_id):
         CART_DATABASE[cart_id]['products'] = cart_update['products']
     except KeyError:
         raise NoSuchCart(cart_id)
-    return {"status": "success"}, 201
+    return CART_DATABASE[cart_id]['products'], 201
 
 
 @amazon_killer.route('/cart/<int:cart_id', methods="DELETE")
