@@ -107,3 +107,7 @@ class DatabaseConnection:
         WHERE id=%s
         """
         self.cursor.execute(delete_cart_query, (_id,))
+
+    def __exit__(self):
+        self.cursor.close()
+        self.conn.close()
